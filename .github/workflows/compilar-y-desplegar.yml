@@ -29,4 +29,6 @@ jobs:
       - name: Compilar
         run: dotnet build --no-restore # Para no restuarar porque ya lo hicimos en el anterior paso
         
+      - name: Realizar Pruebas
+        run: dotnet test --no-build
         
