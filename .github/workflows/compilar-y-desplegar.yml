@@ -41,7 +41,7 @@ jobs:
       # El contenido de la carpeta miapp, quiero ponerla como artefacto para que otros puedan descargarla
       # Upload a Build Artifact lo buscamos del market place de workflows
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.2.2
+        uses: actions/upload-artifact@v4.4.3
         # Especificamos donde se encuentra el artifacto
         with:
           name: build
