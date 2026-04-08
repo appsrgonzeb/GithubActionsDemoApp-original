@@ -13,6 +13,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      proyecto: GithubActionsDemoApp/GithubActionsDemoApp.csproj
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.2
@@ -31,4 +33,18 @@ jobs:
         
       - name: Realizar Pruebas
         run: dotnet test --no-build
-        
+
+      # El artefacto lo dejará en la carpeta miapp
+      - name: dotnet publish
+        run: dotnet publish $proyecto  -c Release -o miapp --runtime wix-x86
+
+      # El contenido de la carpeta miapp, quiero ponerla como artefacto para que otros puedan descargarla
+      # Upload a Build Artifact lo buscamos del market place de workflows
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.2.2
+        # Especificamos donde se encuentra el artifacto
+        with:
+          name: build
+          path: ./miapp
+          
+      
