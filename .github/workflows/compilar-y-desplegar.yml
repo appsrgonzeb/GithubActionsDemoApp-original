@@ -13,7 +13,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Permisos para escribir el Release
     permissions: 
       contents: write
     env:
