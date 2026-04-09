@@ -58,10 +58,11 @@ jobs:
       # para colocar el release en el repositorio
       - name: GH Release
         uses: softprops/action-gh-release@v2.6.1
-        with: ./mi_app.zip
-        body: "Nuestra aplicacion"
-        # Nombre que le vamos a colocar a la etiqueta
-        # En este caso vamos colocar el nombre de la rama
-        tag_name: ${{ github.ref_name }}
+        with: 
+          files: ./mi_app.zip
+          body: "Nuestra aplicacion"
+          # Nombre que le vamos a colocar a la etiqueta
+          # En este caso vamos colocar el nombre de la rama
+          tag_name: ${{ github.ref_name }}
       
       
